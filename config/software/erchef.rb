@@ -16,7 +16,7 @@
 #
 
 name "erchef"
-version "1.2.2"
+version "cm/OC-5178/erlware_commons"
 
 dependencies ["erlang", "rsync", "curl"]
 
