@@ -82,6 +82,7 @@ Vagrant::Config.run do |config|
     c.vm.guest   = :freebsd
     #c.vm.box_url = "http://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-centos-6.2.box"
     c.vm.network :hostonly, "172.30.30.#{host_ip_counter+=1}"
+    c.vm.provision :shell, :inline => "sed -i '' -E 's%^([^#].*):setenv=%\1:setenv=PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest,%' /etc/login.conf"
     configure_vm c, :use_nfs => true
   end
 
@@ -90,8 +91,26 @@ Vagrant::Config.run do |config|
     c.vm.guest   = :freebsd
     #c.vm.box_url = "http://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-centos-6.2.box"
     c.vm.network :hostonly, "172.30.30.#{host_ip_counter+=1}"
-    configure_vm c, :use_nfs => true
     c.vm.provision :shell, :inline => "sed -i '' -E 's%^([^#].*):setenv=%\1:setenv=PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-9-stable/Latest,%' /etc/login.conf"
+    configure_vm c, :use_nfs => true
+  end
+
+  config.vm.define 'freebsd-8.3' do |c|
+    c.vm.box     = "taximagic-freebsd-8.3"
+    c.vm.guest   = :freebsd
+    #c.vm.box_url = "http://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-centos-6.2.box"
+    c.vm.network :hostonly, "172.30.30.#{host_ip_counter+=1}"
+    c.vm.provision :shell, :inline => "sed -i '' -E 's%^([^#].*):setenv=%\1:setenv=PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/amd64/packages-8-stable/Latest,%' /etc/login.conf"
+    configure_vm c, :use_nfs => true
+  end
+
+  config.vm.define 'freebsd-8.3-i386' do |c|
+    c.vm.box     = "taximagic-freebsd-8.3-i386"
+    c.vm.guest   = :freebsd
+    #c.vm.box_url = "http://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-centos-6.2.box"
+    c.vm.network :hostonly, "172.30.30.#{host_ip_counter+=1}"
+    c.vm.provision :shell, :inline => "sed -i '' -E 's%^([^#].*):setenv=%\1:setenv=PACKAGESITE=ftp://ftp.freebsd.org/pub/FreeBSD/ports/i386/packages-8-stable/Latest,%' /etc/login.conf"
+    configure_vm c, :use_nfs => true
   end
 
 end
