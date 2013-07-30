@@ -15,17 +15,13 @@
 # limitations under the License.
 #
 
-name "chef"
-maintainer "Opscode, Inc."
-homepage "http://www.opscode.com"
+name "chef-zero"
+version "1.5.4"
 
-replaces        "chef-full"
-install_path    "/opt/chef"
-build_version   Omnibus::BuildVersion.full
-build_iteration 4
-
-dependency "preparation"
-dependency "chef"
-dependency "version-manifest"
-dependency "chef-zero"
+dependency "ruby"
+dependency "rubygems"
 dependency "knife-essentials"
+
+build do
+  gem "install chef-zero -n #{install_dir}/embedded/bin --no-rdoc --no-ri -v #{version}"
+end

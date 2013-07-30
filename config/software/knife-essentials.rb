@@ -15,17 +15,9 @@
 # limitations under the License.
 #
 
-name "chef"
-maintainer "Opscode, Inc."
-homepage "http://www.opscode.com"
+name "knife-essentials"
+version "1.5.3"
 
-replaces        "chef-full"
-install_path    "/opt/chef"
-build_version   Omnibus::BuildVersion.full
-build_iteration 4
-
-dependency "preparation"
-dependency "chef"
-dependency "version-manifest"
-dependency "chef-zero"
-dependency "knife-essentials"
+build do
+  gem "install knife-essentials -n #{install_dir}/embedded/bin --no-rdoc --no-ri -v #{version}"
+end
