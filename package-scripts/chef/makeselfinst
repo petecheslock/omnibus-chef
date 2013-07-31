@@ -74,6 +74,7 @@ ln -sf $DEST_DIR/bin/chef-client $PREFIX/bin || error_exit "Cannot link chef-cli
 ln -sf $DEST_DIR/bin/chef-solo $PREFIX/bin || error_exit "Cannot link chef-solo to $PREFIX/bin"
 ln -sf $DEST_DIR/bin/chef-apply $PREFIX/bin || error_exit "Cannot link chef-apply to $PREFIX/bin"
 ln -sf $DEST_DIR/bin/chef-shell $PREFIX/bin || error_exit "Cannot link chef-shell to $PREFIX/bin"
+ln -sf $DEST_DIR/bin/chef-zero $PREFIX/bin || error_exit "Cannot link chef-zero to $PREFIX/bin"
 ln -sf $DEST_DIR/bin/knife $PREFIX/bin || error_exit "Cannot link knife to $PREFIX/bin"
 ln -sf $DEST_DIR/bin/shef $PREFIX/bin || error_exit "Cannot link shef to $PREFIX/bin"
 ln -sf $DEST_DIR/bin/ohai $PREFIX/bin || error_exit "Cannot link ohai to $PREFIX/bin"

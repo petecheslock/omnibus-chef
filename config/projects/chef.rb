@@ -26,6 +26,6 @@ build_iteration 4
 
 dependency "preparation"
 dependency "chef"
-dependency "version-manifest"
 dependency "chef-zero"
 dependency "knife-essentials"
+dependency "version-manifest"
